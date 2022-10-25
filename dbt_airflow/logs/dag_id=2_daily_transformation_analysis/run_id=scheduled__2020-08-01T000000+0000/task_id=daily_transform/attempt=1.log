@@ -1,0 +1,34 @@
+[2022-10-20 14:58:34,484] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 2_daily_transformation_analysis.daily_transform scheduled__2020-08-01T00:00:00+00:00 [queued]>
+[2022-10-20 14:58:34,510] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 2_daily_transformation_analysis.daily_transform scheduled__2020-08-01T00:00:00+00:00 [queued]>
+[2022-10-20 14:58:34,510] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-20 14:58:34,511] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2022-10-20 14:58:34,512] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-20 14:58:34,550] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): daily_transform> on 2020-08-01 00:00:00+00:00
+[2022-10-20 14:58:34,557] {standard_task_runner.py:52} INFO - Started process 188 to run task
+[2022-10-20 14:58:34,563] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', '2_daily_transformation_analysis', 'daily_transform', 'scheduled__2020-08-01T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/transform_and_analysis.py', '--cfg-path', '/tmp/tmpb40ozake', '--error-file', '/tmp/tmpf3mgsr7l']
+[2022-10-20 14:58:34,564] {standard_task_runner.py:80} INFO - Job 3: Subtask daily_transform
+[2022-10-20 14:58:34,662] {task_command.py:369} INFO - Running <TaskInstance: 2_daily_transformation_analysis.daily_transform scheduled__2020-08-01T00:00:00+00:00 [running]> on host e6f75c36125c
+[2022-10-20 14:58:34,991] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=2_daily_transformation_analysis
+AIRFLOW_CTX_TASK_ID=daily_transform
+AIRFLOW_CTX_EXECUTION_DATE=2020-08-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2020-08-01T00:00:00+00:00
+[2022-10-20 14:58:34,994] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-10-20 14:58:34,995] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'cd /dbt && dbt run --models transform --profiles-dir .']
+[2022-10-20 14:58:35,014] {subprocess.py:85} INFO - Output:
+[2022-10-20 14:58:35,026] {subprocess.py:92} INFO - bash: line 1: dbt: command not found
+[2022-10-20 14:58:35,028] {subprocess.py:96} INFO - Command exited with return code 127
+[2022-10-20 14:58:35,067] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 195, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2022-10-20 14:58:35,076] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=2_daily_transformation_analysis, task_id=daily_transform, execution_date=20200801T000000, start_date=20221020T145834, end_date=20221020T145835
+[2022-10-20 14:58:35,110] {standard_task_runner.py:97} ERROR - Failed to execute job 3 for task daily_transform (Bash command failed. The command returned a non-zero exit code 127.; 188)
+[2022-10-20 14:58:35,139] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-10-20 14:58:35,235] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
